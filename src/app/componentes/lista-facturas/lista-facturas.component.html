@@ -1,0 +1,46 @@
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="d-inline">Listado Facturas</h2>
+                    <button class="btn btn-success float-end mb-5" routerLink="/crear-factura">Nuevo Producto</button>
+                    <table datatable class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Factura</th>
+                            <th scope="col">Iva Total</th>
+                            <th scope="col">Valor Total</th>
+                            <th scope="col">Pagada</th>
+                            <th scope="col">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <td>{{36594 | number}}</td>
+                            <td>{{200000 | currency: 'USD'}}</td>
+                            <td>{{2000000 | currency: 'USD'}}</td>
+                            <td>Si</td>
+                            <td>
+                                <i class="fas fa-pencil-alt btn text-primary"></i>
+                                <i  class="fas fa-trash-alt btn text-danger"></i>
+                                <i class="fas fa-eye btn"></i>                             
+                            </td>
+                          <tr >
+                            <td>{{25489 | number}}</td>
+                            <td>{{100000 | currency: 'USD'}}</td>
+                            <td>{{1000000 | currency: 'USD'}}</td>
+                            <td>Si</td>
+                            <td>
+                                <i class="fas fa-pencil-alt btn text-primary"></i>
+                                <i  class="fas fa-trash-alt btn text-danger"></i>
+                                <i class="fas fa-eye btn"></i>                             
+                            </td>
+                          </tr>                          
+                        </tbody>
+                    </table>                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
