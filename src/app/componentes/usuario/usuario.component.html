@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="text-center">Crear Usuario</h2>
+                    <form class="mt-3 row justify-content-center" [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
+                        <div class="mb-3">
+                            <input formControlName="nombre" class="form-control form-control-lg" type="text" placeholder="Nombre">
+                            <div class="text-danger" *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched">                                
+                                <span>El nombre<strong> es obligatorio</strong></span>
+                            </div>
+                        </div>    
+                        <div class="mb-3">
+                            <input formControlName="correo" class="form-control form-control-lg" type="text" placeholder="Correo">
+                            <div class="text-danger" *ngIf="usuarioForm.get('correo')?.hasError('required') && usuarioForm.get('correo')?.touched">                                
+                                <span>El correo <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="contrasena" class="form-control form-control-lg" type="password" placeholder="Contraseña">
+                            <div class="text-danger" *ngIf="usuarioForm.get('contrasena')?.hasError('required') && usuarioForm.get('contrasena')?.touched">                                
+                                <span>La contraseña <strong>es obligatoria</strong></span>
+                            </div>
+                        </div>
+                                       
+                        <div class="mb-3">                            
+                            <select formControlName="permiso" class="form-select form-select-lg">
+                                <option value="" hidden>Tipo Permiso</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Usuario">usuario</option>
+                            </select>
+                            <div class="text-danger" *ngIf="usuarioForm.get('permiso')?.hasError('required') && usuarioForm.get('permiso')?.touched" >                                
+                                <span>Esta opcion <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>                       
+                        <div>
+                            <button routerLink="/home" class="btn btn-lg btn-secondary float-start">Volver</button>
+                            <button [disabled]="usuarioForm.invalid" type="submit" class="btn btn-lg btn-success float-end">Guardar</button>
+                        </div>   
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
