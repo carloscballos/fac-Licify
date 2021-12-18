@@ -61,7 +61,7 @@ export class FacturasComponent implements OnInit {
     console.log(FACTURA)
     console.log(this.facturaForm.get('producto')?.value);
     this.toastr.success('Factura registrada con exito','Factura Registrada');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/facturas']);
   }
 
 }

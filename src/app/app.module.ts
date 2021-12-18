@@ -14,6 +14,7 @@ import { DataTablesModule } from "angular-datatables";
 import { Toast, ToastrModule } from 'ngx-toastr';
 import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
 import { UsuarioComponent } from './componentes/usuario/usuario.component';
+import { HomeComponent } from './componentes/home/home.component';
 
 
 
@@ -24,7 +25,8 @@ import { UsuarioComponent } from './componentes/usuario/usuario.component';
     FacturasComponent,
     InicioSesionComponent,
     ListaUsuariosComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

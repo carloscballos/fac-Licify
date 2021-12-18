@@ -33,7 +33,7 @@ export class UsuarioComponent implements OnInit {
       permiso: this.usuarioForm.get('permiso')?.value,
     }
     console.log(this.usuarioForm);
-    this.toastr.success('Usuario registrado con exito','Usuario Registrada');
+    this.toastr.success('Usuario registrado con exito','Usuario Registrado');
     this.router.navigate(['/usuarios']);
   }
 
