@@ -17,11 +17,19 @@ export class Factura{
     precio3: number;
     precio4: number;
     pagada: string;
+    iva: number;
+    iva1: number;
+    iva2: number;
+    iva3: number;
+    iva4: number;
+    ivaTotal: number;
+    valorTotal:number;
     
     constructor(factura:number,producto:string,producto1:string,producto2:string,producto3:string,
                 producto4:string,cantidad:number,cantidad1:number,cantidad2:number,cantidad3:number,
                 cantidad4:number,precio:number,precio1:number,precio2:number,precio3:number,precio4:number,                
-                pagada:string){
+                pagada:string,iva:number,iva1:number,iva2:number,iva3:number,iva4:number,ivaTotal:number,
+                valorTotal: number){
         this.factura = factura;
         this.producto = producto;
         this.producto1 = producto1;
@@ -38,6 +46,13 @@ export class Factura{
         this.precio2 = precio2;
         this.precio3 = precio3;
         this.precio4 = precio4;
-        this.pagada = pagada
+        this.pagada = pagada;
+        this.iva =iva;
+        this.iva1 =iva1;
+        this.iva2 =iva2;
+        this.iva3 =iva3;
+        this.iva4 =iva4;
+        this.ivaTotal = ivaTotal;
+        this.valorTotal = valorTotal
     }
 }

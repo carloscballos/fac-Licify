@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Factura } from 'src/app/modelos/factura.model';
+import { FacturaService } from 'src/app/servicios/factura.service';
 
 @Component({
   selector: 'app-facturas',
@@ -13,7 +14,8 @@ export class FacturasComponent implements OnInit {
 
   facturaForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService) { 
+  constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService,
+              private _facturaService: FacturaService) { 
     this.facturaForm = fb.group({
       factura: ['',Validators.required],
       producto: ['',Validators.required],
@@ -31,7 +33,9 @@ export class FacturasComponent implements OnInit {
       precio2: [],
       precio3: [],
       precio4: [],
-      pagada: ['',Validators.required]
+      pagada: ['',Validators.required],
+      valorTotal: [],
+      ivaTotal:[]
     })
   }
 
@@ -56,12 +60,23 @@ export class FacturasComponent implements OnInit {
       precio2: this.facturaForm.get('precio2')?.value,
       precio3: this.facturaForm.get('precio3')?.value,
       precio4: this.facturaForm.get('precio4')?.value,
-      pagada: this.facturaForm.get('pagada')?.value,    
+      pagada: this.facturaForm.get('pagada')?.value,
+      ivaTotal: this.facturaForm.get('ivaTotal')?.value,
+      valorTotal: this.facturaForm.get('valorTotal')?.value,
+      iva: this.facturaForm.get('iva')?.value,
+      iva1: this.facturaForm.get('iva1')?.value,
+      iva2: this.facturaForm.get('iva2')?.value,
+      iva3: this.facturaForm.get('iva3')?.value,
+      iva4: this.facturaForm.get('iva4')?.value,
     }
     console.log(FACTURA)
-    console.log(this.facturaForm.get('producto')?.value);
-    this.toastr.success('Factura registrada con exito','Factura Registrada');
+    this._facturaService.guardarFactura(FACTURA).subscribe(data =>{
+      this.toastr.success('Factura registrada con exito','Factura Registrada');
     this.router.navigate(['/facturas']);
+    }, error => {
+      console.log(error);
+      this.facturaForm.reset();
+    })    
   }
 
 }

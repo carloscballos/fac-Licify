@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/modelos/usuario.model';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -13,7 +14,8 @@ export class UsuarioComponent implements OnInit {
 
   usuarioForm: FormGroup;
   
-  constructor(private fb: FormBuilder, private router: Router,private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private router: Router,private toastr: ToastrService,
+              private _usuarioServices: UsuarioService ) {
     this.usuarioForm = fb.group({
       nombre: ['',Validators.required],
       correo: ['',[Validators.required,Validators.email]],
@@ -32,9 +34,11 @@ export class UsuarioComponent implements OnInit {
       contrasena: this.usuarioForm.get('contrasena')?.value,
       permiso: this.usuarioForm.get('permiso')?.value,
     }
-    console.log(this.usuarioForm);
-    this.toastr.success('Usuario registrado con exito','Usuario Registrado');
-    this.router.navigate(['/usuarios']);
+    console.log(USUARIO);
+      this._usuarioServices.guardarUsuarios(USUARIO).subscribe(data =>{
+      this.toastr.success('Usuario registrado con exito','Usuario Registrado');
+      this.router.navigate(['/usuarios']);
+    })    
   }
 
 }

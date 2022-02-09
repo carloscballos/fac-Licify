@@ -14,10 +14,10 @@ const routes: Routes = [
   {path: 'home',component: HomeComponent},
   {path: 'facturas',component: ListaFacturasComponent},
   {path: 'crear-factura', component: FacturasComponent},
-  {path: 'editar-facura/id',component: FacturasComponent},
+  {path: 'editar-factura/:id',component: FacturasComponent},
   {path: 'usuarios', component: ListaUsuariosComponent},
   {path: 'crear-usuario', component: UsuarioComponent},
-  {path: 'editar-usuario/id', component: UsuarioComponent},
+  {path: "editar-usuario/:id", component: UsuarioComponent},
   {path: '**', redirectTo: ''}
 ];
 
